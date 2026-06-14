@@ -11,10 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up job
-      uses: actions/checkout@v3
-
-    - name: Run actions/checkout@v3
+    - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Set up Python
@@ -22,11 +19,13 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install Basic Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pandas numpy scikit-learn mlflow dagshub matplotlib seaborn
+        pip install pandas numpy scikit-learn matplotlib seaborn
 
-    - name: Run Model Training
+    - name: Run Pipeline Simulation
       run: |
-        python modelling_tuning.py
+        echo "Menjalankan otomatisasi pipeline..."
+        python automate_Jose-Manurung.py
+        echo "Pipeline preprocessing berhasil dieksekusi tanpa error!"
